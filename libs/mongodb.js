@@ -7,5 +7,5 @@ var connect = function(callback){
 	});
 }
 
-exports.db = db_demo;
+exports.db = function (){ return db_demo;};
 exports.connect = connect;

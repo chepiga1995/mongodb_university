@@ -10,15 +10,12 @@ app.use(morgan('dev', {
 }));
 app.engine('html', require('swig').renderFile);
 app.set('view engine', 'html');
-app.set('view engine', 'ejs');
+app.set('views', __dirname + '/templates');
 
-app.get('/', function(req, res, next){
-	db.collection('things').findOne({a: 1}, function(err, doc){
-		if (err) return next(err);
-		res.render('index', {message: JSON.stringify(doc)});
-	});
-});
+require('./routers')(app);
+
 // app.use(express.static('public'));
+
 app.use(function(err, req, res, next){
 	res.end("error!!");
 });
@@ -36,6 +33,7 @@ async.series([function(callback){
 		process.exit(1);
 	} else {
 		console.log("Server started and connected to database");
+		db = results[0];
 		server = results[1];
 	}
 })
