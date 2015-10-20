@@ -1,0 +1,15 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "description": "My test application",
+  "main": "app.js",
+  "author": "Yura Chepiga",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.4.2",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.13.3",
+    "mongodb": "^2.0.45",
+    "morgan": "^1.6.1"
+  }
+}
